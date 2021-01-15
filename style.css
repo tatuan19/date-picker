@@ -1,0 +1,15 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: whitesmoke;
+	font-family: 'Saira', Arial, Helvetica, sans-serif;
+}
+
+.header {
+    margin: 2rem;
+    text-align: center;
+}
