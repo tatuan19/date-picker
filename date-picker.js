@@ -54,9 +54,13 @@ prevElement.addEventListener('click', goToPrevMonth);
 
 // Function
 function toggleDatePicker(e) {
-    if (!checkEventPathForClass(e.path, 'dates')) {
-        datesElement.classList.toggle('active');
+    // check event path
+    for (let i = 0; i < e.path.length; i++) {
+        if (e.path[i].classList && e.path[i].classList.contains('dates')) {
+            return;
+        }
     }
+    datesElement.classList.toggle('active');
 }
 
 function goToNextMonth(e) {
@@ -114,16 +118,6 @@ function generateCalenderDate(e) {
     }
 }
 
-// HELPER FUNCTIONS
-function checkEventPathForClass(path, selector) {
-    for (let i = 0; i < path.length; i++) {
-        if (path[i].classList && path[i].classList.contains(selector)) {
-            return true;
-        }
-    }
-
-    return false;
-}
 function formatDate(d) {
     let day = d.getDate();
     if (day < 10) {
