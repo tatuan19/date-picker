@@ -4,7 +4,10 @@ const div = document.createElement('div');
 div.className = 'date-picker';
 
 div.innerHTML = `
-  <div class="selected-date"></div>
+  <div class="selected-date-container">
+    <div class="selected-date"></div>
+    <i class="fa fa-calendar calendar-icon"></i>
+  </div>
   <div class="dates">
       <div class="month">
           <div class="arrows prev-mth">&lt;</div>
@@ -18,7 +21,8 @@ div.innerHTML = `
 document.getElementsByTagName("date-picker")[0].appendChild(div);
 
 // Get element
-const datePickerElement = document.querySelector('.date-picker');
+// const datePickerElement = document.querySelector('.date-picker');
+const calendarIconElement = document.querySelector('.calendar-icon');
 const selectedDateElement = document.querySelector('.date-picker .selected-date');
 const datesElement = document.querySelector('.date-picker .dates');
 const monthElement = document.querySelector('.date-picker .dates .month .mth');
@@ -48,7 +52,7 @@ selectedDateElement.dataset.value = selectedDate;
 generateCalenderDate();
 
 // Add event listener
-datePickerElement.addEventListener('click', toggleDatePicker);
+calendarIconElement.addEventListener('click', toggleDatePicker);
 nextElement.addEventListener('click', goToNextMonth);
 prevElement.addEventListener('click', goToPrevMonth);
 
